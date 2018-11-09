@@ -18,15 +18,15 @@ export default class LineChart extends Component {
   createLineChart() {
     const _self = this;
     const node = this.node
-    var width = 500,
+    var width = 400,
         height = 400,
-        margin = 50,
+        padding = 30,
         x = d3.scaleLinear()
             .domain([0, 9])
-            .range([margin, width - margin]),
+            .range([padding, width - padding]),
         y = d3.scaleLinear()
             .domain([0, 9])
-            .range([height - margin, margin]);
+            .range([height - padding, padding]);
 
         d3.range(10).map(function(i){
             return {x: i, y: Math.sin(i) + 5};
@@ -76,12 +76,12 @@ export default class LineChart extends Component {
             .call(yAxis);
     }
 
-    function xStart(){ return margin;}
-    function yStart(){ return height - margin;}
+    function xStart(){ return padding;}
+    function yStart(){ return height - padding;}
     //function xEnd(){ return width - margin;}
-    function yEnd(){ return margin;}
-    function quadrantWidth(){ return width - 2 * margin;}
-    function quadrantHeight(){ return height - 2 * margin;}
+    function yEnd(){ return padding;}
+    function quadrantWidth(){ return width - 2 * padding;}
+    function quadrantHeight(){ return height - 2 * padding;}
   }
 
   render() {

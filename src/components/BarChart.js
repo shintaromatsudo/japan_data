@@ -16,14 +16,14 @@ export default class BarChart extends Component {
 
   createBarChart() {
     const node = this.node
-    var dataset =
-  [{"x": 0, "y": 6},{"x": 1, "y": 9},{"x": 2, "y": 6},
-  {"x": 3, "y": 5},{"x": 4, "y": 2},{"x": 6, "y": 4},
-  {"x": 7, "y": 2},{"x": 8, "y": 5},{"x": 9, "y": 2}]
+    var dataset = [{"x": 0, "y": 6},{"x": 1, "y": 9},{"x": 2, "y": 6},
+    {"x": 3, "y": 5},{"x": 4, "y": 2},{"x": 6, "y": 4},
+    {"x": 7, "y": 2},{"x": 8, "y": 5},{"x": 9, "y": 2}]
 
-    var width = 500,
+
+    var width = 400,
         height = 400,
-        padding = 50;
+        padding = 30;
 
             // 2. SVG領域の設定
          var svg = d3.select(node)
@@ -59,7 +59,7 @@ export default class BarChart extends Component {
            .attr("y", function(d) { return yScale(d.y); })
            .attr("width", xScale.bandwidth())
            .attr("height", function(d) { return height - padding - yScale(d.y); })
-           .attr("fill", "steelblue");
+           .attr("fill", "pink");
     }
 
 

@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -5,17 +7,6 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -32,44 +23,59 @@
 }
 
 body {
-    margin-left: 50px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background-color: black;
     font-family: 'Roboto', sans-serif !important;
 }
+
 h1{
   color: white;
 }
 
-h3{
+p{
     color: #f8fdff;
     padding-left: 20px;
     padding-top: 20px;
     opacity: .8;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
+}
+
+.container{
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+.left{
+  width: 95%;
 }
 
 .top-left{
-    margin: 20px;
+    margin-top: 20px;
     background-color: white;
     border-radius:4px;
     height: 400px;
-    width: 500px;
 }
 
 .bottom-left{
-    margin: 20px;
+    margin-top: 20px;
     background-color: white;
     border-radius: 4px;
     height: 400px;
 }
 
 .right{
-    margin: 20px;
+    margin-top: 20px;
+    padding-top: 30px;
     background-color: white;
     border-radius: 4px;
-    height: 820px;
-    width: 500px;
+    height: 790px;
+    width: 95%;
 }
 
 .browser-legend{
@@ -89,7 +95,7 @@ h3{
 
 .line {
     fill: none;
-    stroke: #7dc7f4;
+    stroke: pink;
     stroke-width: 5px;
 
 }

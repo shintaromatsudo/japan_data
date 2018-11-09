@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
 import './css/App.css';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { theme } from './components/theme';
 
 //import Map1 from './components/Map';
 import Graph1 from './components/Graph1';
@@ -18,10 +21,11 @@ export default class App extends Component {
   render() {
     return (
 
-            <div className="container-fluid">
-
-                <div className="row">
-                    <div className="col-xs-6" >
+            <div className="container">
+            <MuiThemeProvider theme={theme} >
+                <Grid container spacing={24}>
+                    <Grid item xs={12} md={6}>
+                    <div className="left">
                       <div className="top-left" id="">
                         <LineChart  data={data} />
                       </div>
@@ -29,14 +33,15 @@ export default class App extends Component {
                         <BarChart  data={data} />
                       </div>
                     </div>
-                    <div className="col-xs-6">
+                    </Grid>
+                    <Grid item xs={12} md={6}>
                         <div className="right" id="">
-                            <Graph2/>
                             <Graph1/>
+                            <Graph2/>
                         </div>
-                    </div>
-                </div>
-
+                    </Grid>
+                </Grid>
+            </MuiThemeProvider>
             </div>
     );
   }
