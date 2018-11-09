@@ -1,0 +1,144 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+    margin-left: 50px;
+    background-color: black;
+    font-family: 'Roboto', sans-serif !important;
+}
+h1{
+  color: white;
+}
+
+h3{
+    color: #f8fdff;
+    padding-left: 20px;
+    padding-top: 20px;
+    opacity: .8;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.top-left{
+    margin: 20px;
+    background-color: white;
+    border-radius:4px;
+    height: 400px;
+    width: 500px;
+}
+
+.bottom-left{
+    margin: 20px;
+    background-color: white;
+    border-radius: 4px;
+    height: 400px;
+}
+
+.right{
+    margin: 20px;
+    background-color: white;
+    border-radius: 4px;
+    height: 820px;
+    width: 500px;
+}
+
+.browser-legend{
+    font-size:14px;
+    opacity:.8;
+}
+
+.bottom-left-svg{
+    padding-top:40px;
+    text-align: center;
+}
+
+
+.bottom-right-svg{
+    text-align: center;
+}
+
+.line {
+    fill: none;
+    stroke: #7dc7f4;
+    stroke-width: 5px;
+
+}
+
+.axis{
+    fill:#bbc7d9;
+    opacity: 1;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: none;
+    shape-rendering: crispEdges;
+
+}
+
+.axis text {
+    font-size: 14px;
+}
+
+.y-grid .tick{
+    stroke: #4b5f87;
+    opacity: 1;
+}
+
+.default-svg{
+
+}
+
+
+.svg-container{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fontSize {
+    font-size:.8em;
+    height: auto;
+    text-align: center;
+}
