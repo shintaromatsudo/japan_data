@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3';
-
+import data from '../data/p';
 
 export default class LineChart extends Component {
   constructor(props){
@@ -16,72 +16,70 @@ export default class LineChart extends Component {
   }
 
   createLineChart() {
-    const _self = this;
-    const node = this.node
-    var width = 400,
-        height = 400,
-        padding = 30,
-        x = d3.scaleLinear()
-            .domain([0, 9])
-            .range([padding, width - padding]),
-        y = d3.scaleLinear()
-            .domain([0, 9])
-            .range([height - padding, padding]);
+    console.log(data[0]);
+    const node = this.node;
+    var dataset = [
+       ['H17', 5628],
+       ['H22', 5506],
+       ['H27', 5382],
+       ['H28', 5352],
+       ['H29', 5320],
 
-        d3.range(10).map(function(i){
-            return {x: i, y: Math.sin(i) + 5};
-        })
+     ];
 
-    var line = d3.line()
-            .x(function(d){return x(d.x);})
-            .y(function(d){return y(d.y);});
+     var width = 500; // グラフの幅
+     var height = 400; // グラフの高さ
+     var margin = { "top": 30, "bottom": 60, "right": 30, "left": 60 };
 
-    var svg = d3.select(node)
+     // 2. SVG領域の設定
+     var svg = d3.select(node).attr("width", width).attr("height", height);
 
-    svg.attr("height", height)
-        .attr("width", width);
+     // 3. 軸スケールの設定
+     var xScale = d3.scaleBand()
+       .rangeRound([margin.left, width - margin.left])
+       .padding(0.1)
+       .domain(dataset.map(function(d) { return d[0]; }));
 
-     svg.selectAll("path")
-            .data(_self.props.data)
-        .enter()
-            .append("path")
-            .attr("class", "line")
-            .attr("d", function(d){return line(d);});
+     var yScale = d3.scaleLinear()
+       .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+       .range([height - margin.bottom, margin.top]);
 
-    renderAxes(svg);
+     // 4. 軸の表示
+     var axisx = d3.axisBottom(xScale).ticks(5);
+     var axisy = d3.axisLeft(yScale).ticks(5);
 
-    function renderAxes(svg){
-        var xAxis = d3.axisBottom()
-                .scale(x.range([0, quadrantWidth()]))
-                .scale(x);
+     svg.append("g")
+       .attr("transform", "translate(" + 0 + "," + (height - margin.bottom) + ")")
+       .call(axisx)
+       .append("text")
+       .attr("fill", "black")
+       .attr("x", (width - margin.left - margin.right) / 2 + margin.left)
+       .attr("y", 35)
+       .attr("text-anchor", "middle")
+       .attr("font-size", "10pt")
+       .attr("font-weight", "bold");
 
-        var yAxis = d3.axisLeft()
-                .scale(y.range([quadrantHeight(), 0]))
-                .scale(y);
+     svg.append("g")
+       .attr("transform", "translate(" + margin.left + "," + 0 + ")")
+       .call(axisy)
+       .append("text")
+       .attr("fill", "black")
+       .attr("text-anchor", "middle")
+       .attr("x", -(height - margin.top - margin.bottom) / 2 - margin.top)
+       .attr("y", -35)
+       .attr("transform", "rotate(-90)")
+       .attr("font-weight", "bold")
+       .attr("font-size", "10pt");
 
-        svg.append("g")
-            .attr("class", "axis")
-            .attr("transform", function(){
-                return "translate(" + xStart()
-                    + "," + yStart() + ")";
-            })
-            .call(xAxis);
-
-        svg.append("g")
-            .attr("class", "axis")
-            .attr("transform", function(){
-                return "translate(" + xStart()
-                    + "," + yEnd() + ")";
-            })
-            .call(yAxis);
-    }
-
-    function xStart(){ return padding;}
-    function yStart(){ return height - padding;}
-    //function xEnd(){ return width - margin;}
-    function yEnd(){ return padding;}
-    function quadrantWidth(){ return width - 2 * padding;}
-    function quadrantHeight(){ return height - 2 * padding;}
+     // 5. ラインの表示
+     svg.append("path")
+       .datum(dataset)
+       .attr("fill", "none")
+       .attr("stroke", "pink")
+       .attr("stroke-width", 1.5)
+       .attr("d", d3.line()
+         .x(function(d) { return xScale(d[0]); })
+         .y(function(d) { return yScale(d[1]); }));
   }
 
   render() {

@@ -6,4 +6,7 @@ export const theme = createMuiTheme({
     type: 'dark', // ベースのテーマ lightかdarkか
     primary: pink, // primaryのカラー
   },
+  typography: {
+    useNextVariants: true,
+  },
 });

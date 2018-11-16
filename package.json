@@ -17,11 +17,16 @@
     "queue": "^4.5.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
+    "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",
+    "react-simple-maps": "^0.12.1",
     "react-tap-event-plugin": "^3.0.3",
+    "redux": "^4.0.1",
+    "redux-tooltip": "^0.7.2",
     "tip": "^1.1.4",
     "topojson": "^3.0.2",
-    "topojson-client": "^3.0.0"
+    "topojson-client": "^3.0.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,5 +42,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "json-loader": "^0.5.7"
+  }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3';
+import h17 from '../data/h17';
+import h22 from '../data/h22';
 
 export default class BarChart extends Component {
   constructor(props){
@@ -14,16 +16,14 @@ export default class BarChart extends Component {
     this.createBarChart()
   }
 
-  createBarChart() {
-    const node = this.node
-    var dataset = [{"x": 0, "y": 6},{"x": 1, "y": 9},{"x": 2, "y": 6},
-    {"x": 3, "y": 5},{"x": 4, "y": 2},{"x": 6, "y": 4},
-    {"x": 7, "y": 2},{"x": 8, "y": 5},{"x": 9, "y": 2}]
+  createBarChart(a) {
+    console.log(h22);
+    const node = this.node;
+    var dataset = h17
 
-
-    var width = 400,
+    var width = 800,
         height = 400,
-        padding = 30;
+        padding = 50;
 
             // 2. SVG領域の設定
          var svg = d3.select(node)
@@ -34,10 +34,10 @@ export default class BarChart extends Component {
          var xScale = d3.scaleBand()
            .rangeRound([padding, width - padding])
            .padding(0.1)
-           .domain(dataset.map(function(d) { return d.x; }));
+           .domain(dataset.map(function(d) { return d.prefecture; }));
 
          var yScale = d3.scaleLinear()
-           .domain([0, d3.max(dataset, function(d) { return d.y; })])
+           .domain([0, d3.max(dataset, function(d) { return d.H17; })])
            .range([height - padding, padding]);
 
          // 4. 軸の表示
@@ -55,10 +55,10 @@ export default class BarChart extends Component {
            .data(dataset)
            .enter()
            .append("rect")
-           .attr("x", function(d) { return xScale(d.x); })
-           .attr("y", function(d) { return yScale(d.y); })
+           .attr("x", function(d) { return xScale(d.prefecture); })
+           .attr("y", function(d) { return yScale(d.H17); })
            .attr("width", xScale.bandwidth())
-           .attr("height", function(d) { return height - padding - yScale(d.y); })
+           .attr("height", function(d) { return height - padding - yScale(d.H17); })
            .attr("fill", "pink");
     }
 

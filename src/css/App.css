@@ -29,7 +29,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: black;
+    background-color: grey;
     font-family: 'Roboto', sans-serif !important;
 }
 
@@ -39,8 +39,8 @@ h1{
 
 p{
     color: #f8fdff;
-    padding-left: 20px;
-    padding-top: 20px;
+    padding-left: 30px;
+    margin: 0;
     opacity: .8;
     font-weight: 400;
     font-size: 15px;
@@ -57,14 +57,14 @@ p{
 
 .top-left{
     margin-top: 20px;
-    background-color: white;
+    background-color: grey;
     border-radius:4px;
     height: 400px;
 }
 
 .bottom-left{
     margin-top: 20px;
-    background-color: white;
+    background-color: grey;
     border-radius: 4px;
     height: 400px;
 }
@@ -72,7 +72,7 @@ p{
 .right{
     margin-top: 20px;
     padding-top: 30px;
-    background-color: white;
+    background-color: grey;
     border-radius: 4px;
     height: 790px;
     width: 95%;
